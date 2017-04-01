@@ -312,6 +312,11 @@ idle_scan_regions (GtkSourceCompletionWordsBuffer *buffer)
 	GtkSourceRegionIter region_iter;
 	GtkTextIter start;
 	GtkTextIter stop;
+	GtkTextIter insert_place;
+	GtkTextMark *insert_mark;
+
+	insert_mark = gtk_text_buffer_get_insert (buffer->priv->buffer);
+	gtk_text_buffer_get_iter_at_mark (buffer->priv->buffer, &insert_place, insert_mark);
 
 	gtk_text_buffer_get_start_iter (buffer->priv->buffer, &start);
 	stop = start;
