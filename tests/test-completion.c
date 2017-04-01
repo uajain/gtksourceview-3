@@ -380,8 +380,8 @@ create_window (void)
 
 	builder = gtk_builder_new ();
 
-	gtk_builder_add_from_resource (builder,
-				       "/org/gnome/gtksourceview/tests/ui/test-completion.ui",
+	gtk_builder_add_from_file (builder,
+				   "test-completion.ui",
 				       &error);
 
 	if (error != NULL)
