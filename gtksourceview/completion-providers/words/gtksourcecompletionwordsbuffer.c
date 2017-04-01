@@ -297,6 +297,14 @@ scan_region (GtkSourceCompletionWordsBuffer *buffer,
 	return nb_lines_scanned;
 }
 
+/*
+idle_scan_regions function is called repeatedly at timely intervals.
+Notice that the scans starts from the start (gtk_text_buffer_get_start_iter)
+
+Start making changes from here so that the scan starts from
+the insertion position of the cursor and stop at start/end.
+*/
+
 static gboolean
 idle_scan_regions (GtkSourceCompletionWordsBuffer *buffer)
 {
